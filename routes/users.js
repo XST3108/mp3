@@ -125,7 +125,7 @@ router.delete('/:id', wrap(async (req, res) => {
     { $or: [{ assignedUser: userId }, { _id: { $in: user.pendingTasks } }] },
     { $set: { assignedUser: '', assignedUserName: 'unassigned' } }
   );
-  send(res, 200, 'User deleted', user);
+  send(res, 204);
 }));
 
 module.exports = router;
